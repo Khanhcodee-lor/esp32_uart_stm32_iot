@@ -8,8 +8,6 @@ Preferences preferences;
 HardwareSerial MySerial(2); // UART2: RX=16, TX=17
 AsyncWebServer server(80);
 
-#define DATABASE_URL "https://stm32-waterlevel-default-rtdb.firebaseio.com/"
-#define DATABASE_SECRET "rTm0Lf1M1KvucDx44FTnXJSggZM9lLC9TuSgnz9i"
 
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE html>
@@ -371,7 +369,7 @@ void initWiFi() {
 
 void sendToFirebase() {
   if (Firebase.ready()) {
-    FirebaseJson json;
+
     
     // DEBUG: In giá trị trước khi gửi
     Serial.println("=== DEBUG VALUES ===");
@@ -558,4 +556,5 @@ void loop() {
   }
   
   delay(100);
+
 }
